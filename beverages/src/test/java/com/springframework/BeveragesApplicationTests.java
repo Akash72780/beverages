@@ -50,7 +50,7 @@ class BeveragesApplicationTests {
 		BeerDto beerDto=BeerDto.builder().build();
 		String beerDtoToJson=objectMapper.writeValueAsString(beerDto);
 		
-		mockMvc.perform(put("/api/v1/beer/")
+		mockMvc.perform(put("/api/v1/beer/"+UUID.randomUUID().toString())
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(beerDtoToJson)).andExpect(status().isNoContent());
 	}
